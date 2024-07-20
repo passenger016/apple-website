@@ -41,11 +41,11 @@ export default function VideoCarousel() {
     });
 
     // videoId is from 0,1,2.. and we multiply it by 100 to make it 0,100,200... and add a percentage to it
-    gsap.to("#slider",{
-      transform: `translateX(${-100*videoId}%)`,
+    gsap.to("#slider", {
+      transform: `translateX(${-100 * videoId}%)`,
       duration: 2,
       ease: "power2.inOut",
-    })
+    });
   }, [isEnd, videoId]);
 
   useEffect(() => {
@@ -170,7 +170,7 @@ export default function VideoCarousel() {
                   playsInline={true}
                   preload="auto"
                   className={`${
-                    list.id==2 && "translate-x-44"
+                    list.id == 2 && "translate-x-44"
                   } "pointer-events-none" `}
                   muted
                   ref={(el) => (videoRef.current[index] = el)} // Assigning a unique ref to each video element
@@ -232,7 +232,7 @@ export default function VideoCarousel() {
                 ? () => handleProcess("video-reset")
                 : isPlaying
                 ? () => handleProcess("pause")
-                : handleProcess("play")
+                : () => handleProcess("play")
             }
           />
         </button>
